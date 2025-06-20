@@ -1,0 +1,11 @@
+Description: remove usage of deprecated --no-wheel in tests
+Author: Ananthu C V <weepingclown@debian.org>
+Forwarded: not-needed
+Last-Update: 2025-05-07
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -80,3 +80,3 @@
+     def __init__(self, env_dir: Path, *, wheelhouse: Path | None = None) -> None:
+-        cmd = [str(env_dir), "--no-setuptools", "--no-wheel", "--activators", ""]
++        cmd = [str(env_dir), "--no-setuptools", "--activators", ""]
+         result = _virtualenv.cli_run(cmd, setup_logging=False)

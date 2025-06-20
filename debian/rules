@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME = scikit-build-core
+export PYBUILD_SYSTEM = pyproject
+export PYBUILD_TEST_ARGS = -k 'not network and not test_cmake_config and not test_get_requires and not test_prepare_metadata and not test_program_search and not test_setuptools_abi3 and not test_setuptools_pep517 and not test_pep517_sdist_hash'
+
+export http_proxy = 127.0.0.1
+export https_proxy = 127.0.0.1
+
+%:
+	dh $@ --buildsystem pybuild
